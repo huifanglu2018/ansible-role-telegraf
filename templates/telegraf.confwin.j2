@@ -24,7 +24,7 @@
 # Tags can also be specified via a normal map, but only one form at a time:
 [tags]
 {% if telegraf_tags is defined and telegraf_tags != None %}
-{% for key, value in telegraf_tags.iteritems()%}
+{% for key, value in telegraf_tags.items()%}
    {{ key }} = "{{ value }}"
 {% endfor %}
 {% endif %}
@@ -52,7 +52,7 @@
 {% for output in telegraf_outputs %}
 
 [[outputs.{{ output.type }}]]
-{% for key, value in output.config.iteritems() %}
+{% for key, value in output.config.items() %}
 {% if value is sequence and value is not string %}
   {{ key }} = [ "{{ value|join('", "') }}" ]
 {% else %}
@@ -72,7 +72,7 @@
 {% for input in telegraf_inputs %}
 
 [[inputs.{{ input.type }}]]
-{% if input.config is defined %}{% for key, value in input.config.iteritems() %}
+{% if input.config is defined %}{% for key, value in input.config.items() %}
 {% if value is sequence and value is not string %}
   {{ key }} = [ "{{ value|join('", "') }}" ]
 {% else %}
@@ -86,7 +86,7 @@
 {% if input.subinputs is defined and input.subinputs is sequence %}{% for sp in input.subinputs %}
 
    [[inputs.{{ input.type }}.{{ sp.type }}]]
-{% if sp.config is defined %}{% for key, value in sp.config.iteritems() %}
+{% if sp.config is defined %}{% for key, value in sp.config.items() %}
 {% if value is sequence and value is not string %}
       {{ key }} = [ "{{ value|join('", "') }}" ]
 {% else %}
