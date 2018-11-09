@@ -31,7 +31,7 @@
    rm: true
 
 - name: copy telegraf.exe to the desired place (the zip file has a telegraf folder inside)    
-  raw: Move-Item {{ telegraf_win_path }}\\{{ telegraf_zip_folder }}\\telegraf.exe {{ telegraf_win_path }}\\telegraf.exe -force
+  raw: Move-Item {{ telegraf_win_path }}\\{{ telegraf_zip_folder }}*\\telegraf.exe {{ telegraf_win_path }}\\telegraf.exe -force
   when: telegraf_zip_folder != ""
 
 - name: Remove the folder created by win_unzip
