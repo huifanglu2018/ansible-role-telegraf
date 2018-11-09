@@ -24,7 +24,7 @@ telegraf_flush_interval: 30s
 telegraf_flush_jitter: 15s
 
 telegraf_influxdb_urls: 
-  - http://localhost:8086
+  - http://influxdb:8086
 telegraf_influxdb_database: telegraf
 telegraf_influxdb_precision: s
 telegraf_influxdb_timeout: 5s
